@@ -1,0 +1,35 @@
+﻿@model DBCurseWork.Models.Course
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Подробнее о</h1>
+
+<div>
+    <h4>Курсе</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Наименование курса
+            </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            Баллы
+            </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Credits)
+        </dd>
+        <dt class = "col-sm-2">
+Кафедра        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Department.DepartmentID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CourseID">Редактировать</a> |
+    <a asp-action="Index">Вернуться назад</a>
+</div>

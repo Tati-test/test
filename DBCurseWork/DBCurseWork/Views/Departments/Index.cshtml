@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DBCurseWork.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Кафедры</h1>
+
+<p>
+    <a asp-action="Create">Добавить кафедру</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Наименование кафедры
+                </th>
+            <th>
+                Бюджет
+            </th>
+            <th>
+                Дата открытия
+            </th>
+            <th>
+                Заведующий кафедрой
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Budget)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Administrator.FirstMidName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DepartmentID">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.DepartmentID">Подробнее</a> |
+                <a asp-action="Delete" asp-route-id="@item.DepartmentID">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

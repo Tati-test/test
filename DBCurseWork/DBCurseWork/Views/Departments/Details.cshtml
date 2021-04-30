@@ -1,0 +1,42 @@
+﻿@model DBCurseWork.Models.Department
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Подробности</h1>
+
+<div>
+    <h4>О курсе</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Наименование кафедры
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            Бюджет
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Budget)
+        </dd>
+        <dt class = "col-sm-2">
+            Дата открытия
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt class = "col-sm-2">
+            Заведующий кафедрой
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Administrator.FirstMidName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.DepartmentID">Изменить</a> |
+    <a asp-action="Index">Обратно к списку</a>
+</div>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DBCurseWork.Models.Course>
+
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<h2>Курсы</h2>
+
+<p>
+    <a asp-action="Create">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Баллы
+            </th>
+            <th>
+                Кафедра
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Credits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CourseID">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.CourseID">Подробнее</a> |
+                <a asp-action="Delete" asp-route-id="@item.CourseID">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
